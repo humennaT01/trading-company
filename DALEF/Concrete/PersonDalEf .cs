@@ -3,6 +3,7 @@ using DAL.Interfaces;
 using DTO;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity.Migrations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -65,21 +66,10 @@ namespace DALEF.Concrete
         {
             using (var entities = new AdministratorEntities())
             {
-                int id = person.PersonID;
-                Person p = _mapper.Map<Person>(person);
-                var oldPerson = entities.People.SingleOrDefault(pp => pp.PersonID == id);
-                if(oldPerson != null && person != null)
-                {
-                    oldPerson.FirstName = person.FirstName;
-                    oldPerson.LastName = person.LastName;
-                    oldPerson.Gender = person.Gender;
-                    oldPerson.Address = person.Address;
-                    oldPerson.Phone = person.Phone;
-                    oldPerson.BankCard = person.BankCard;
-                    oldPerson.RowUpdateTime = person.RowUpdateTime;
-                }
+                entities.People.AddOrUpdate(_mapper.Map<Person>(person));
                 entities.SaveChanges();
-                return _mapper.Map<PersonDTO>(p);
+                var per = entities.People.Single(p => p.PersonID == person.PersonID);
+                return _mapper.Map<PersonDTO>(per);
             }
         }
 

@@ -3,6 +3,7 @@ using DAL.Interfaces;
 using DTO;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity.Migrations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -65,15 +66,10 @@ namespace DALEF.Concrete
         {
             using (var entities = new AdministratorEntities())
             {
-                int id = role.RoleID;
-                Role r = _mapper.Map<Role>(role);
-                var oldRole = entities.Roles.SingleOrDefault(rr => rr.RoleID == id);
-                if (oldRole != null && role != null)
-                {
-                    oldRole.RoleName = role.RoleName;
-                }
+                entities.Roles.AddOrUpdate(_mapper.Map<Role>(role));
                 entities.SaveChanges();
-                return _mapper.Map<RoleDTO>(r);
+                var rol = entities.Roles.Single(r => r.RoleID == r.RoleID);
+                return _mapper.Map<RoleDTO>(rol);
             }
         }
     }
