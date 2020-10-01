@@ -6,7 +6,7 @@
 //     Manual changes to this file will be overwritten if the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-
+using SqlProviderServices = System.Data.Entity.SqlServer.SqlProviderServices;
 namespace DALEF
 {
     using System;

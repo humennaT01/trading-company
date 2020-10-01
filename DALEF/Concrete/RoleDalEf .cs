@@ -67,8 +67,8 @@ namespace DALEF.Concrete
             using (var entities = new AdministratorEntities())
             {
                 entities.Roles.AddOrUpdate(_mapper.Map<Role>(role));
-                entities.SaveChanges();
                 var rol = entities.Roles.Single(r => r.RoleID == r.RoleID);
+                entities.SaveChanges();
                 return _mapper.Map<RoleDTO>(rol);
             }
         }

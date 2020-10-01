@@ -67,8 +67,8 @@ namespace DALEF.Concrete
             using (var entities = new AdministratorEntities())
             {
                 entities.People.AddOrUpdate(_mapper.Map<Person>(person));
-                entities.SaveChanges();
                 var per = entities.People.Single(p => p.PersonID == person.PersonID);
+                entities.SaveChanges();
                 return _mapper.Map<PersonDTO>(per);
             }
         }
