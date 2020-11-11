@@ -14,6 +14,8 @@ namespace DALEF
     
     public partial class User
     {
+        internal object Salt;
+
         public long UserID { get; set; }
         public string Login { get; set; }
         public string Email { get; set; }

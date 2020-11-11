@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Data.Entity.Migrations;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -70,6 +71,56 @@ namespace DALEF.Concrete
                 var us = entities.Users.Single(u => u.UserID == user.UserID);
                 entities.SaveChanges();
                 return _mapper.Map<UserDTO>(us);
+            }
+        }
+
+
+
+        public bool Login(string username, string password)
+        {
+            using (var ent = new AdministratorEntities())
+            {
+                User user = ent.Users.SingleOrDefault(u => u.Login == username);
+                return user != null && user.Password.SequenceEqual(hash(password));
+            }
+        }
+
+        private byte[] hash(string password)
+        {
+            byte[] data = new byte[64];
+            for (int i = 0; i < password.Length; i++)
+            {
+                data[i] = Convert.ToByte(password[i]);
+            }
+            return data;
+        }
+
+        public long GetId(string login)
+        {
+            using (var entities = new AdministratorEntities())
+            {
+                var user = entities.Users.SingleOrDefault(u => u.Login == login);
+                return user.UserID;
+            }
+        }
+
+        public long GetRoleId(string userLogin)
+        {
+            using (var entities = new AdministratorEntities())
+            {
+                var user = entities.Users.SingleOrDefault(u => u.Login == userLogin);
+                return (long)user.RoleID;
+
+            }
+        }
+
+        public long GetPersonId(string userLogin)
+        {
+            using (var entities = new AdministratorEntities())
+            {
+                var user = entities.Users.SingleOrDefault(u => u.Login == userLogin);
+                return (long)user.PersonID;
+
             }
         }
     }
