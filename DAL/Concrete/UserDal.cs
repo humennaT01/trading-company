@@ -111,6 +111,11 @@ namespace DAL.Concrete
             }
         }
 
+        public bool Login(string username, string password)
+        {
+            throw new NotImplementedException();
+        }
+
         public UserDTO UpdateUser(UserDTO user)
         {
             using (SqlConnection conn = new SqlConnection(this.connectionString))
