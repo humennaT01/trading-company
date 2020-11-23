@@ -25,35 +25,6 @@
 		<li>Можливість розлогуватися</li>
 	</ul>
 	<hr>
-	<h2>Демонстрація роботи WF</h2>
-	<div>
-		<div>Сторінка логування користувача:</div>
-		<img src="Folder/logIn-page.png" height = "250px" width ="350px">
-	</div>
-	<div>
-		<div>Стартова сторіка з можливістю перейти (у меню)на сторінку адміністратора</div>
-		<img src="Folder/start-page.png" height = "400px" width ="600px">
-	</div>
-	<div>
-		<div>Сторінка адміністратора:</div>
-		<img src="Folder/admin-page.png" height = "400px" width ="600px">
-	</div>
-	<div>
-		<p>Функціонал сторінки адміністратора:</p>
-		<div><img src="Folder/show-active.png" height = "400px" width ="600px"></div>
-		<div><img src="Folder/show-blocked.png" height = "400px" width ="600px"></div>
-		<div><img src="Folder/sort.png" height = "400px" width ="600px"></div>
-		<div>
-			<p>Можливий пошук користувача за логіном або емайлом</p>
-			<img src="Folder/findByLogin.png" height = "400px" width ="600px">
-		</div>
-		<div><img src="Folder/result.png" height = "200px" width ="600px"></div>
-		<div><img src="Folder/isBlocked-true.png" height = "400px" width ="600px"></div>
-	</div>
-	<div>
-		<p>Також можна отримати быльш детальну інформацію про кожного користувача:</p>
-		<img src="Folder/get-info.png" height = "350px" width ="550px">
-		<img src="Folder/info-page.png" height = "350px" width ="550px">
-	</div>
+	
 </body>
 </html>
