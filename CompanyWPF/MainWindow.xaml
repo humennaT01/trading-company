@@ -1,0 +1,46 @@
+﻿<Window x:Class="CompanyWPF.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CompanyWPF"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800"
+        AllowsTransparency="True"
+        Background="OldLace"
+        WindowStyle="None"
+        ResizeMode="NoResize">
+
+    <Grid>
+        <StackPanel HorizontalAlignment="Left" Height="30" Width="750" Margin="40,0,0,0" VerticalAlignment="Top"  Background="WhiteSmoke">
+            <Menu Background="White" >
+                <MenuItem Background="White" Header="Menu" FontSize="20" FontFamily="Yu Gothic UI Semilight" >
+                    <MenuItem Background="White" Header="Go to Admin Page" Click="GoToAdminPage_Click"/>
+                    <MenuItem Background="White" Header="Account Info" Click="AccountInfo_Click"/>
+                    <MenuItem Background="Red" Header="Log Out" Click="LogOutFromMenu_Click"/>
+                </MenuItem>
+            </Menu>
+        </StackPanel>
+        <Button Content="Back" 
+                VerticalAlignment="Top" 
+                Height="30" 
+                Background="MistyRose" 
+                AutomationProperties.Name="BackButton" 
+                Click="Exit_Click" 
+                HorizontalAlignment="Left" 
+                Width="40"/>
+        <Button Content="X" 
+                HorizontalAlignment="Left" 
+                Margin="770,0,0,0" 
+                VerticalAlignment="Top" 
+                Width="30" Height="30" 
+                Background="Red" 
+                AutomationProperties.Name="ExitButton" 
+                Click="Exit_Click"/>
+        <Button Content="Log Out" HorizontalAlignment="Left" Margin="676,377,0,0" VerticalAlignment="Top" Width="114" Background="Red" FontFamily="Yu Gothic UI Semilight" FontSize="25" Click="LogOut_Click"/>
+        <Rectangle Fill="NavajoWhite" HorizontalAlignment="Left" Height="343" Margin="40,71,0,0" Stroke="Black" VerticalAlignment="Top" Width="611"/>
+        <Rectangle Fill="PapayaWhip" HorizontalAlignment="Left" Height="89" Margin="69,98,0,0" Stroke="Black" VerticalAlignment="Top" Width="552"/>
+        <Label Content="Store" HorizontalAlignment="Left" Margin="302,122,0,0" VerticalAlignment="Top" FontSize="30" FontFamily="MS Gothic" FontWeight="UltraBlack" Width="94"/>
+
+    </Grid>
+</Window>

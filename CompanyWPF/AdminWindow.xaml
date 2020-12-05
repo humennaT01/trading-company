@@ -1,0 +1,57 @@
+﻿<Window x:Class="CompanyWPF.AdminWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CompanyWPF"
+        mc:Ignorable="d"
+        Title="AdminWindow" Height="450" Width="800"
+        AllowsTransparency="True"
+        Background="Moccasin"
+        WindowStyle="None"
+        ResizeMode="NoResize">
+
+    <Window.Resources>
+        <CollectionViewSource 
+                  Source="{Binding Path=UserList}"   
+                  x:Key="UserCollection" />
+    </Window.Resources>
+
+    <Grid>
+        <StackPanel HorizontalAlignment="Left" Height="30" Width="750" Margin="40,0,0,0" VerticalAlignment="Top"  Background="WhiteSmoke">
+            <Menu Background="White" >
+                <MenuItem Background="White" Header="Menu" FontSize="20" FontFamily="Yu Gothic UI Semilight" >
+                    <MenuItem Background="White" Header="Show">
+                        <MenuItem Background="White" Header="Active users"/>
+                        <MenuItem Background="White" Header="Blocked users"/>
+                        <MenuItem Background="White" Header="All"/>
+                    </MenuItem>
+                    <MenuItem Background="White" Header="Sort">
+                        <MenuItem Background="White" Header="By email"/>
+                        <MenuItem Background="White" Header="By login"/>
+                    </MenuItem>
+                </MenuItem>
+                <MenuItem Background="Red" Header="Log Out" />
+            </Menu>
+            
+        </StackPanel>
+        <Button x:Name="BackButton" Content="Back" HorizontalAlignment="Left" VerticalAlignment="Top" Width="40" Height="30" Background="MistyRose" AutomationProperties.Name="BackButton"/>
+        <Button Content="X" HorizontalAlignment="Left" Margin="770,0,0,0" VerticalAlignment="Top" Width="30" Height="30" Background="Red" AutomationProperties.Name="ExitButton"/>
+        <Label Content="FindBy:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="40,51,0,0" AutomationProperties.Name="FindByLabel" FontFamily="Yu Gothic UI Semilight" FontSize="20"/>
+        <TextBox HorizontalAlignment="Left" Height="26" Margin="131,57,0,0" TextWrapping="Wrap" Text="Login" VerticalAlignment="Top" Width="110" FontFamily="Yu Gothic UI Semilight" TextChanged="FindByLoginBox_TextChanged" FontSize="18" />
+        <TextBox HorizontalAlignment="Left" Height="26" Margin="280,57,0,0" TextWrapping="Wrap" Text="Email" VerticalAlignment="Top" Width="110" FontSize="18" FontFamily="Yu Gothic UI Semilight"/>
+        <Button Content="Find" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Height="23" Margin="436,60,0,0" Background="GreenYellow"/>
+
+        
+        <StackPanel Orientation="Vertical" Background="White" Width="750"  Height="320" Margin="25,112,25,37.6">
+            <Label Background="White" FontWeight="Light" FontSize="27"  Content="Users" />
+            
+            <DataGrid HorizontalAlignment="Left" Height="230" Width="710" Margin="20,10,0,0" VerticalAlignment="Top" ItemsSource="{Binding Source={StaticResource UserCollection}}">
+                <DataGrid.Columns>
+                    
+                </DataGrid.Columns>
+            </DataGrid>
+        </StackPanel>
+    </Grid>
+
+</Window>
