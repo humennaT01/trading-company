@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-using DAL.Interfaces;
+using DALEF.Interfaces;
 using DTO;
 using System;
 using System.Collections.Generic;

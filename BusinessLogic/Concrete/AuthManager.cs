@@ -1,5 +1,5 @@
 ﻿using BusinessLogic.Interfaces;
-using DAL.Interfaces;
+using DALEF.Interfaces;
 using DALEF.Concrete;
 using System;
 using System.Collections.Generic;

@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 using BusinessLogic.Interfaces;
-using DAL.Interfaces;
+using DALEF.Interfaces;
 using DALEF;
 using DALEF.Concrete;
 using DTO;
