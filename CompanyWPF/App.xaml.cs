@@ -32,26 +32,19 @@ namespace CompanyWPF
             RegisterUnity();
             RegisterAutoMapper();
 
-            //LoginWindow lw = Container.Resolve<LoginWindow>();
-            //lw.ShowDialog();
-            //if (lw.DialogResult == true)
-            //{
-            //    MainWindow ml = Container.Resolve<MainWindow>();
-            //    Current.ShutdownMode = ShutdownMode.OnMainWindowClose;
-            //    Current.MainWindow = ml;
-            //    ml.Show();
-            //}
-            //else
-            //{
-            //    Current.Shutdown();
-            //}
-
-
-            //MainWindow lw = Container.Resolve<MainWindow>();
-            //lw.ShowDialog();
-
-            AdminWindow lw = Container.Resolve<AdminWindow>();
+            LoginWindow lw = Container.Resolve<LoginWindow>();
             lw.ShowDialog();
+            if (lw.DialogResult == true)
+            {
+                MainWindow ml = Container.Resolve<MainWindow>();
+                Current.MainWindow = ml;
+                ml.ShowDialog();
+            }
+            else
+            {
+                Current.Shutdown();
+            }
+
         }
 
         private void RegisterAutoMapper()

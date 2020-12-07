@@ -18,37 +18,40 @@
     </Window.Resources>
 
     <Grid>
-        <StackPanel HorizontalAlignment="Left" Height="30" Width="750" Margin="40,0,0,0" VerticalAlignment="Top"  Background="WhiteSmoke">
+        <StackPanel HorizontalAlignment="Left" Height="30" Width="770" Margin="0,0,0,0" VerticalAlignment="Top"  Background="WhiteSmoke">
             <Menu Background="White" >
                 <MenuItem Background="White" Header="Menu" FontSize="20" FontFamily="Yu Gothic UI Semilight" >
                     <MenuItem Background="White" Header="Show">
-                        <MenuItem Background="White" Header="Active users"/>
-                        <MenuItem Background="White" Header="Blocked users"/>
-                        <MenuItem Background="White" Header="All"/>
+                        <MenuItem Background="White" Header="Active users" Click="ActiveUsers_Click"/>
+                        <MenuItem Background="White" Header="Blocked users" Click="BlockedUsers_Click"/>
+                        <MenuItem Background="White" Header="All" Click="AllUsers_Click"/>
                     </MenuItem>
                     <MenuItem Background="White" Header="Sort">
-                        <MenuItem Background="White" Header="By email"/>
-                        <MenuItem Background="White" Header="By login"/>
+                        <MenuItem Background="White" Header="By email" Click="SortByEmail_Click"/>
+                        <MenuItem Background="White" Header="By login" Click="SortByLogin_Click"/>
                     </MenuItem>
                 </MenuItem>
-                <MenuItem Background="Red" Header="Log Out" />
+                <MenuItem Background="WhiteSmoke" Header="CangeStatus"  FontSize="16" FontFamily="Yu Gothic UI Semilight">
+                    <MenuItem Header="ActivateUser" Background="WhiteSmoke" FontSize="16" FontFamily="Yu Gothic UI Semilight" Click="ActiveteStaus_Click"/>
+                    <MenuItem Header="BlockUser" Background="WhiteSmoke" FontSize="16" FontFamily="Yu Gothic UI Semilight" Click="BlockStaus_Click"/>
+                </MenuItem>
+                <MenuItem Background="WhiteSmoke" Header="UserInfo"  Width="75" Height="28" FontSize="16" FontFamily="Yu Gothic UI Semilight" Click="UserInfoButton_Click"/>
+                <MenuItem Background="Red" Header="Log Out"  Click="LogOut_Click" />
             </Menu>
-            
-        </StackPanel>
-        <Button x:Name="BackButton" Content="Back" HorizontalAlignment="Left" VerticalAlignment="Top" Width="40" Height="30" Background="MistyRose" AutomationProperties.Name="BackButton"/>
-        <Button Content="X" HorizontalAlignment="Left" Margin="770,0,0,0" VerticalAlignment="Top" Width="30" Height="30" Background="Red" AutomationProperties.Name="ExitButton"/>
-        <Label Content="FindBy:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="40,51,0,0" AutomationProperties.Name="FindByLabel" FontFamily="Yu Gothic UI Semilight" FontSize="20"/>
-        <TextBox HorizontalAlignment="Left" Height="26" Margin="131,57,0,0" TextWrapping="Wrap" Text="Login" VerticalAlignment="Top" Width="110" FontFamily="Yu Gothic UI Semilight" TextChanged="FindByLoginBox_TextChanged" FontSize="18" />
-        <TextBox HorizontalAlignment="Left" Height="26" Margin="280,57,0,0" TextWrapping="Wrap" Text="Email" VerticalAlignment="Top" Width="110" FontSize="18" FontFamily="Yu Gothic UI Semilight"/>
-        <Button Content="Find" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Height="23" Margin="436,60,0,0" Background="GreenYellow"/>
 
-        
+        </StackPanel>
+        <Button Content="X" Margin="770,0,0,0" VerticalAlignment="Top" Height="30" Background="Red" AutomationProperties.Name="ExitButton" Click="Exit_Click"/>
+        <Label Content="FindBy:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="40,51,0,0" AutomationProperties.Name="FindByLabel" FontFamily="Yu Gothic UI Semilight" FontSize="20"/>
+        <TextBox Name="findByLogin" HorizontalAlignment="Left" Height="26" Margin="131,57,0,0" TextWrapping="Wrap" Text="Login" VerticalAlignment="Top" Width="120" FontFamily="Yu Gothic UI Semilight" FontSize="16" />
+        <TextBox Name="findByEmail" HorizontalAlignment="Left" Height="26" Margin="280,57,0,0" TextWrapping="Wrap" Text="Email" VerticalAlignment="Top" Width="120" FontSize="16" FontFamily="Yu Gothic UI Semilight"/>
+        <Button Content="Find" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Height="23" Margin="436,60,0,0" Background="GreenYellow"  FontSize="16" FontFamily="Yu Gothic UI Semilight" Click="Find_Click"/>
+
         <StackPanel Orientation="Vertical" Background="White" Width="750"  Height="320" Margin="25,112,25,37.6">
             <Label Background="White" FontWeight="Light" FontSize="27"  Content="Users" />
-            
-            <DataGrid HorizontalAlignment="Left" Height="230" Width="710" Margin="20,10,0,0" VerticalAlignment="Top" ItemsSource="{Binding Source={StaticResource UserCollection}}">
+
+            <DataGrid Name="dataGrid" HorizontalAlignment="Left" Height="230" Width="710" Margin="20,10,0,0" VerticalAlignment="Top" ItemsSource="{Binding Source={StaticResource UserCollection}}">
                 <DataGrid.Columns>
-                    
+
                 </DataGrid.Columns>
             </DataGrid>
         </StackPanel>

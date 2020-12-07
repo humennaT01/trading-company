@@ -156,10 +156,6 @@
       <Project>{c0f3fc99-e007-439f-9dd1-2fe27e6da783}</Project>
       <Name>DALEF</Name>
     </ProjectReference>
-    <ProjectReference Include="..\DAL\DAL.csproj">
-      <Project>{98b43bdc-29f7-473d-b189-67ea10a9f6db}</Project>
-      <Name>DAL</Name>
-    </ProjectReference>
     <ProjectReference Include="..\DTO\DTO.csproj">
       <Project>{9EDCE7B4-0D0C-430A-AFBB-F6421A9FE4B3}</Project>
       <Name>DTO</Name>

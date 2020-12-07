@@ -56,12 +56,10 @@ namespace CompanyWPF
         {
             AdminWindow aw = App.Container.Resolve<AdminWindow>();
             aw.ShowDialog();
-            DialogResult = false;
-            this.Close();
         }
 
         private void AccountInfo_Click(object sender, RoutedEventArgs e)
-        { 
+        {
             PersonInfoWindow piw = new PersonInfoWindow(_adminManager, Id);
             piw.ShowDialog();
         }
