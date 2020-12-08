@@ -17,5 +17,13 @@ namespace BusinessLogic.Interfaces
         List<UserDTO> SortedUsersByLogins();
         List<UserDTO> GetAllUsers();
         PersonDTO GetInfoAboutPerson(long id);
+
+        UserDTO CreateUser(UserDTO user);
+        UserDTO UpdateUser(UserDTO user);
+        void DeleteUser(long id);
+        UserDTO GetUser(long id);
+        List<RoleDTO> GetAllRoles();
+        List<PersonDTO> GetAllPeople();
+
     }
 }

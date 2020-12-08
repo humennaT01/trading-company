@@ -82,5 +82,35 @@ namespace BusinessLogic.Concrete
         {
             return _personDal.GetPersonById((int)id);
         }
+
+        public UserDTO CreateUser(UserDTO user)
+        {
+            return _userDal.CreateUser(user);
+        }
+
+        public UserDTO UpdateUser(UserDTO user)
+        {
+            return _userDal.UpdateUser(user);
+        }
+
+        public void DeleteUser(long id)
+        {
+            _userDal.DeleteUser((int)id);
+        }
+
+        public UserDTO GetUser(long id)
+        {
+            return _userDal.GetUserById((int)id);
+        }
+
+        public List<RoleDTO> GetAllRoles()
+        {
+            return _roleDal.GetAllRole();
+        }
+
+        public List<PersonDTO> GetAllPeople()
+        {
+            return _personDal.GetAllPersons();
+        }
     }
 }
