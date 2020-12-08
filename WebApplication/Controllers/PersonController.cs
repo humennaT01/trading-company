@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using BusinessLogic.Interfaces;
+using DTO;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,8 +16,9 @@ namespace WebApplication.Controllers
         private IMapper _mapper;
         public PersonController(IAdminManager adminManager, IMapper mapper)
         {
+            var config = new MapperConfiguration(cfg => cfg.CreateMap<PersonDTO, PersonViewModel>().ReverseMap());
+            _mapper = new Mapper(config);
             _adminManager = adminManager;
-            _mapper = mapper;
         }
 
         public ActionResult Index()

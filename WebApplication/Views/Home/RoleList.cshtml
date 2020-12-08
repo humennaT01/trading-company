@@ -6,9 +6,7 @@
 
 <h2>RoleList</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
+
 <table class="table">
     <tr>
         <th>
@@ -36,9 +34,7 @@
                 @Html.DisplayFor(modelItem => item.RowInsertTime)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.RoleID }) |
-                @Html.ActionLink("Details", "Details", new { id = item.RoleID }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.RoleID })
+                @Html.ActionLink("Details", "../Role/Details", new { id = item.RoleID }) 
             </td>
         </tr>
     }
