@@ -19,7 +19,6 @@ namespace WebApplication.Controllers
             var config = new MapperConfiguration(cfg => cfg.CreateMap<UserDTO, UserViewModel>().ReverseMap());
             _adminManager = adminManager;
             _mapper = new Mapper(config);
-           
         }
 
         public ActionResult Index()
@@ -59,8 +58,10 @@ namespace WebApplication.Controllers
             {
                 if (ModelState.IsValid)
                 {
-                    UserDTO userDTO = _mapper.Map < UserViewModel>( _adminManager.CreateUser(_mapper.Map<UserDTO>(user)));
-                    return RedirectToAction(nameof(Index));
+                    user.RowInsertTime = DateTime.UtcNow;
+                    user.RowUpdateTime = DateTime.UtcNow;
+                    UserDTO userDTO = _adminManager.CreateUser(_mapper.Map<UserDTO>(user));
+                    return View("../Home/Index");
                 }
 
                 return View();
@@ -86,7 +87,7 @@ namespace WebApplication.Controllers
                 if (ModelState.IsValid)
                 {
                     _adminManager.UpdateUser(_mapper.Map<UserDTO>(user));
-                    return RedirectToAction(nameof(Index));
+                    return View("../Home/Index");
                 }
 
                 return View(user);
@@ -112,8 +113,9 @@ namespace WebApplication.Controllers
             {
                 try
                 {
-                    _adminManager.DeleteUser(user.UserID);
-                    return RedirectToAction(nameof(Index));
+                    var id = user.UserID;
+                    _adminManager.DeleteUser(id);
+                    return View("../Home/Index");
                 }
                 catch
                 {

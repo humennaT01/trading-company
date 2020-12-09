@@ -29,8 +29,12 @@ namespace WebApplication.Controllers
 
         public ActionResult Details(int id)
         {
-            PersonViewModel person = _mapper.Map<PersonViewModel>(_adminManager.GetAllPeople().Where(p => p.PersonID == id).FirstOrDefault());
-            return View(person);
+            if (LoginController.active)
+            {
+                PersonViewModel person = _mapper.Map<PersonViewModel>(_adminManager.GetAllPeople().Where(p => p.PersonID == id).FirstOrDefault());
+                return View(person);
+            }
+            return View("../Login/Login", new LoginViewModel());
         }
     }
 }

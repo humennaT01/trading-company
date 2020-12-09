@@ -29,8 +29,12 @@ namespace WebApplication.Controllers
 
         public ActionResult Details(int id)
         {
-            RoleViewModel role = _mapper.Map<RoleViewModel>(_adminManager.GetAllRoles().Where(r => r.RoleID == id).FirstOrDefault());
-            return View(role);
+            if (LoginController.active)
+            {
+                RoleViewModel role = _mapper.Map<RoleViewModel>(_adminManager.GetAllRoles().Where(r => r.RoleID == id).FirstOrDefault());
+                return View(role);
+            }
+            return View("../Login/Login", new LoginViewModel());
         }
     }
 }
